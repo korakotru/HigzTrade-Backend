@@ -1,2 +1,6 @@
-/*ignore files*/
+﻿/*ignore files*/
 .vs/
+bin/
+obj/
+Logs/
+*.user
