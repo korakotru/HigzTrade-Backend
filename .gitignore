@@ -1,6 +1,17 @@
 ﻿/*ignore files*/
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache and settings
 .vs/
-bin/
-obj/
-Logs/
 *.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logging
+Logs/
+
+# User-specific files
+.vscode/
