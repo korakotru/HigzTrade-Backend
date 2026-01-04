@@ -1,0 +1,15 @@
+﻿HigzTrade.Domain -> Entities -> Generated
+	Entities ที่ generate จาก EF-Scaffold *** ห้ามแก้ไข ถ้า database เปลี่ยนแปลง ให้ generate ใหม่
+
+HigzTrade.Domain -> Entities
+	คือ Entities ที่เป็น partial class ของ EF-Entities เพื่อใส่ Business-Logic
+
+HigzTrade.Domain -> Events
+	เก็บ Domain-Event ของแต่ละ entities
+
+HigzTrade.Domain -> Service
+	การคำนวณใด ๆ ที่เป็นกติกาธุรกิจและไม่มี entity ตัวใดเป็นเจ้าภาพ
+
+
+
+

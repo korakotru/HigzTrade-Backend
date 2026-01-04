@@ -1,0 +1,26 @@
+Step to install : 
+# ติดตั้งเครื่องมือ EF Tool (ทำครั้งเดียวในเครื่อง)
+dotnet tool install --global dotnet-ef --version 9.0.0
+
+
+Sample command :
+# ติดตั้ง Package ในโปรเจกต์ (ให้เวอร์ชันตรงกับ .NET ที่ใช้ เช่น 8.0 หรือ 9.0)
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+
+Step to run :
+1. open package management console
+2. cd to .csproj folder
+3. run command
+   dotnet ef dbcontext scaffold "Server=localhost,1433;Database=HigzTrade;User Id=sa;Password=Test@1234;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer --project HigzTrade.Infrastructure --startup-project HigzTrade.Infrastructure --output-dir ../HigzTrade.Domain/Entities/Generated --namespace HigzTrade.Domain.Entities --context HigzTradeDbContext --context-dir Data --context-namespace HigzTrade.Infrastructure.Data --no-onconfiguring -f
+4. replace "set; }" เป็น "private set; }"
+	4.1 Ctrl+Shift+F
+	4.2 เลือก Replace in Files
+	4.3 Looking in Current Project
+	4.4 Fild = "set; }" Replace = "private set; }"  และกด Replace All
+
+
+
+*** Optional: Install the "EF Core Power Tools" extension to generate entities and DbContext
+

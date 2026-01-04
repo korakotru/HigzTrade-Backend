@@ -1,0 +1,14 @@
+dotnet add package Serilog.AspNetCore  // ตัวหลักสำหรับ ASP.NET Core (รวม sinks console/file)
+dotnet add package Serilog.Sinks.Seq  // ถ้าอยาก log ไป Seq (แนะนำมาก)
+dotnet add package Serilog.Sinks.File  // log ไฟล์ JSON
+dotnet add package Serilog.Settings.Configuration  // อ่าน config จาก appsettings.json
+dotnet add package Serilog.Enrichers.Environment  // เพิ่ม MachineName, ThreadId
+dotnet add package Serilog.Formatting.Compact // เพื่อให้ log เป็น format .clef ซึ่งเป็น JSON พิเศษที่ต้องมีฟิลด์บังคับอย่าง @t (เวลา) และ @mt (ข้อความ)เพื่อให้มันแสดงผลได้สวยงามเหมือนใน Seq (ใช้โปรแกรม Compact Log Viewer ดูได้)
+
+
+
+*** docker command
+docker run -d -e ACCEPT_EULA=Y -e SEQ_FIRSTRUN_ADMINPASSWORD=admin -p 5341:80 --name seq --restart unless-stopped datalust/seq
+
+
+

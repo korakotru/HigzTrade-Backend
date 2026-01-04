@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\Requests\ReadModels\**" />
+    <Compile Remove="ReadModels\**" />
+    <EmbeddedResource Remove="DTOs\Requests\ReadModels\**" />
+    <EmbeddedResource Remove="ReadModels\**" />
+    <None Remove="DTOs\Requests\ReadModels\**" />
+    <None Remove="ReadModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Scrutor" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HigzTrade.Domain\HigzTrade.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

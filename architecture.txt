@@ -1,0 +1,66 @@
+﻿
+📂 โครงสร้าง HigzTrade.Solution
+
+Architecture : Modular Monolith (project-base)
+
+HigzTrade.Solution/
+├── HigzTrade.sln                (ไฟล์โซลูชันหลักสำหรับเปิดใน VS หรือ VS Code)
+├── src/                         (แหล่งรวม Source Code หลักของระบบ)
+│   ├── HigzTrade.Core/          (หัวใจของระบบ - ห้ามอ้างอิงโปรเจกต์อื่น)
+│   │   ├── Entities/            (Class ของฐานข้อมูล เช่น Product.cs, Customer.cs)
+│   │   ├── Interfaces/          (สัญญาจ้าง เช่น IProductService, ICustomerRepo)
+│   │   ├── Services/            (Business Logic หลัก เช่น การคำนวณภาษี, การเช็คสิทธิ์)
+│   │   └── Exceptions/          (Custom Error เช่น CustomerNotFoundException.cs)
+│   │
+│   ├── HigzTrade.Infrastructure/(ส่วนที่คุยกับโลกภายนอก - อ้างอิง Core)
+│   │   ├── Data/                (EF Core: AppDbContext.cs, Migrations/)
+│   │   ├── Auth/                (Identity: ระบบ MSAL/Graph, TokenValidation.cs)
+│   │   └── ExternalServices/    (เช่น ระบบส่ง Email, เชื่อมต่อ API ธนาคาร)
+│   │
+│   └── HigzTrade.Api/           (หน้าด่าน: ASP.NET Core Web API - อ้างอิง Core & Infra)
+│       ├── Controllers/
+│       │   ├── Admin/           (Endpoints สำหรับ Admin พร้อม [Authorize(Policy="Admin")])
+│       │   └── User/            (Endpoints สำหรับ User พร้อม [Authorize(Policy="User")])
+│       ├── Extensions/          (ตัวกรอง Error หรือ Logging กลาง)
+│       ├── appsettings.json     (Config ของ DB และ Azure Ad/MSAL)
+│       └── Program.cs           (จุดเริ่มต้น: ลงทะเบียน DI, Auth, และ Middleware)
+│
+└── tests/                       (ส่วนการทดสอบอัตโนมัติ)
+    ├── HigzTrade.UnitTests/     (เทส Logic ใน Core/Services - ใช้ Mock ข้อมูล)
+    ├── HigzTrade.IntegrationTests/ (เทสการคุยกับ DB จริง - ใช้ Testcontainers)
+    └── HigzTrade.ApiTests/      (เทส End-to-End: เรียก API จริงผ่าน HTTP จำลอง)
+
+
+📝 คำอธิบายรายโปรเจกต์และไฟล์ที่สำคัญ
+
+1. HigzTrade.Core (The Domain)
+หน้าที่: เก็บความรู้ทางธุรกิจทั้งหมด (Business Rules) โดยไม่มีโค้ดที่เกี่ยวกับ SQL หรือ Web มาปน
+ทำไมต้องแยก: เพื่อให้สามารถทำ Unit Test ได้รวดเร็วที่สุดโดยไม่ต้องมีฐานข้อมูล และเพื่อให้ Logic เสถียรที่สุด
+
+2. HigzTrade.Infrastructure (The Implementation)
+หน้าที่: จัดการเรื่องเทคนิคและเครื่องมือ (Tools)
+AppDbContext.cs: คือตัวกลางที่ใช้ EF Core คุยกับ SQL Server
+Auth Folder: เก็บ Logic การเช็ค Role จาก Microsoft Graph (ที่คุณย้ายมาเป็น Identity Library)
+ทำไมต้องแยก: เพื่อให้คุณเปลี่ยน Database หรือเปลี่ยนระบบ Auth ได้ในอนาคตโดยไม่ต้องแก้ Business Logic ใน Core
+
+3. HigzTrade.Api (The Entry Point)
+หน้าที่: จัดการ HTTP Request/Response และความปลอดภัย (Security)
+Controllers (Admin/User): กั้นสิทธิ์แยกกันชัดเจนตามที่คุณต้องการ
+Program.cs: ปี 2025 จะใช้ไฟล์เดียวในการตั้งค่าทุอย่าง (Minimal APIs style)
+ทำไมต้องแยก: เพื่อให้เป็นส่วนที่หันหน้าออกหาอินเทอร์เน็ตเพียงจุดเดียว
+
+
+🧪 แผนการทำ Automate Test สำหรับ CI/CD
+Unit Tests (ใน tests/):
+สร้างคลาสเทส เช่น OrderServiceTests.cs
+ใช้ Moq เพื่อจำลอง Repo ไม่ต้องต่อ DB จริง
+CI Task: รันทุกครั้งที่มีการ Pull Request (ใช้เวลา < 1 นาที)
+
+Integration Tests:
+ใช้ Testcontainers (Docker) รัน SQL Server ขึ้นมาเฉพาะตอนเทส
+ทดสอบว่า AppDbContext บันทึกข้อมูลและ Join ตาราง Product/Customer ได้ถูกต้องจริงๆ หรือไม่
+CI Task: รันก่อนการ Merge โค้ดสำคัญ (ใช้เวลา 2-5 นาที)
+Api Tests (E2E):
+ใช้ WebApplicationFactory เพื่อ Boot ระบบ API ทั้งหมดขึ้นมาใน RAM
+ยิง HTTP ไปที่ /api/admin/products แล้วเช็คว่าถ้าไม่มี Admin Token ระบบต้องตอบกลับด้วย 403 Forbidden
+CI Task: รันเป็นขั้นตอนสุดท้ายก่อน Deploy สู่ Production

@@ -1,0 +1,38 @@
+﻿- Create Solution's Projects Structure and add project's dependencies
+HigzTrade.sln
+src/
+├─ HigzTrade.Domain
+├─ HigzTrade.Application
+├─ HigzTrade.Infrastructure
+└─ HigzTrade.TradeApi
+
+TradeApi
+ → Application
+ → Infrastructure
+
+Infrastructure
+ → Application
+ → Domain
+
+Application
+ → Domain
+
+Domain
+ → (none)
+
+
+
+
+- Initial folders and files for Domains and Application-Services
+- Generate EF-Entities and DbContext (Use EF-Scaffold)
+- Infrastructure Implement Application-Services interfaces
+- Infrastructure Implement Domain interfaces
+- Implement Unit of Work
+- Implement dependencies injection
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<#@ template language="C#" hostspecific="true" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="Microsoft.EntityFrameworkCore.Design" #>
+<#@ assembly name="Microsoft.EntityFrameworkCore.Relational" #>
+<#@ assembly name="Microsoft.EntityFrameworkCore.SqlServer" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Microsoft.EntityFrameworkCore" #>
+<#@ import namespace="Microsoft.EntityFrameworkCore.Metadata" #>
+<#@ import namespace="Microsoft.EntityFrameworkCore.Metadata.Internal" #>
+<#@ import namespace="Microsoft.EntityFrameworkCore.Scaffolding" #>
+
+<#
+    var entityType = (IEntityType)Model;
+    var namespaceName = NamespaceHint;
+#>
+namespace <#= namespaceName #>
+{
+    public partial class <#= entityType.Name #>
+    {
+<# foreach (var property in entityType.GetProperties()) { #>
+        public <#= property.ClrType.Name #> <#= property.Name #> { get; private set; }
+<# } #>
+    }
+}
