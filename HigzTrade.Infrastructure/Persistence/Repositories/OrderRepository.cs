@@ -1,8 +1,8 @@
-﻿using HigzTrade.Application.Interfaces;
+﻿//using HigzTrade.Application.Interfaces;
 
 namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository //: IOrderRepository
     {
         //private readonly HigzTradeDbContext _context;
 

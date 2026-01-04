@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HigzTrade.Infrastructure.ExternalServices
 {
-    internal class EmailService
+    public class MailService
     {
-        
+        //todo:implement email services
     }
 }

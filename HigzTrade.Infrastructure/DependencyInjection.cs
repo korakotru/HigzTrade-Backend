@@ -1,4 +1,4 @@
-﻿using HigzTrade.Application.Interfaces;
+﻿//using HigzTrade.Application.Interfaces;
 using HigzTrade.Infrastructure.Persistence.Context;
 using HigzTrade.Infrastructure.Persistence.Repositories;
 using HigzTrade.Infrastructure.Persistence.UnitOfWork;
@@ -21,8 +21,8 @@ namespace HigzTrade.Infrastructure
                 options.UseLazyLoadingProxies(false); // Turn off EF LazyLoad
             });
 
-            // Register Repository ต่อได้เลย
-            services.AddScoped<IAppUnitOfWork, EfUnitOfWork>();
+            // Register Repository
+            services.AddScoped<EfUnitOfWork, EfUnitOfWork>();
 
             services.Scan(scan => scan
                 .FromAssemblies(AppDomain.CurrentDomain.GetAssemblies()
@@ -32,8 +32,10 @@ namespace HigzTrade.Infrastructure
                                    type.Namespace.StartsWith("HigzTrade.Infrastructure.Persistence.Repositories") &&
                                    (type.Name.EndsWith("Repository") || type.Name.EndsWith("Query")))
                 )
-                .AsImplementedInterfaces() // Dependency Injection
+                //.AsImplementedInterfaces() // Dependency Injection (inject to interface)
+                .AsSelf() // Dependency Injection (direct injection to self class)
                 .WithScopedLifetime());
+
 
             return services;
         }

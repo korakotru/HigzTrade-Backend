@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HigzTrade.Application\HigzTrade.Application.csproj" />
     <ProjectReference Include="..\HigzTrade.Domain\HigzTrade.Domain.csproj" />
   </ItemGroup>
 
