@@ -155,8 +155,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T15:12:28.715Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -169,8 +168,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:07:47.466Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -180,7 +178,7 @@
               "RelativeDocumentMoniker": "HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
               "ToolTip": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
               "RelativeToolTip": "HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:08:00.016Z",
               "IsPinned": true,
@@ -197,8 +195,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T14:01:57.729Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -211,8 +208,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T19:05:33.501Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -225,8 +221,7 @@
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T13:01:45.561Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -239,8 +234,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:07:43.259Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -253,8 +247,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T17:04:57.482Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -267,8 +260,7 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAwwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T16:54:32.679Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -281,8 +273,7 @@
               "ViewState": "AgIAAAcAAAAAAAAAAAAUwCYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-25T18:24:48.834Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -298,8 +289,7 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:00.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:00.357Z"
             },
             {
               "$type": "Document",
@@ -311,8 +301,7 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.production.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:24.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:24.597Z"
             },
             {
               "$type": "Document",
@@ -324,8 +313,7 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.staging.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:36.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:36.604Z"
             },
             {
               "$type": "Document",
@@ -337,8 +325,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IAppUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T18:53:00.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:53:00.208Z"
             },
             {
               "$type": "Document",
@@ -350,8 +337,7 @@
               "RelativeToolTip": "HigzTrade.Domain\\Events\\Product\\CreateProductDomainEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T19:05:26.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T19:05:26.897Z"
             },
             {
               "$type": "Document",
@@ -363,8 +349,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\OrderSummaryReadModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:32.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:32.923Z"
             },
             {
               "$type": "Document",
@@ -376,8 +361,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\GetOrderListRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:41.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:41.555Z"
             },
             {
               "$type": "Document",
@@ -389,8 +373,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\GetOrderListHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:42.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:42.67Z"
             },
             {
               "$type": "Document",
@@ -402,8 +385,7 @@
               "RelativeToolTip": "HigzTrade.Application\\UseCases\\Orders\\PlaceOrderUseCase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:48.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:48.336Z"
             },
             {
               "$type": "Document",
@@ -415,8 +397,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T11:23:44.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T11:23:44.978Z"
             },
             {
               "$type": "Document",
@@ -428,8 +409,7 @@
               "RelativeToolTip": "HigzTrade.Application\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T11:31:53.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T11:31:53.912Z"
             },
             {
               "$type": "Document",
@@ -441,8 +421,7 @@
               "RelativeToolTip": "HigzTrade.Domain\\Entities\\Generated\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T13:33:27.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T13:33:27.659Z"
             },
             {
               "$type": "Document",
@@ -454,8 +433,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Exceptions\\BusinessException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T14:58:47.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T14:58:47.685Z"
             },
             {
               "$type": "Document",
@@ -467,8 +445,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\ExternalServices\\EmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T15:02:33.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T15:02:33.207Z"
             },
             {
               "$type": "Document",
@@ -480,8 +457,7 @@
               "RelativeToolTip": "Serilog.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-31T16:30:23.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T16:30:23.66Z"
             },
             {
               "$type": "Document",
@@ -493,8 +469,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Categories\\CategoryReadModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:30:41.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:30:41.611Z"
             },
             {
               "$type": "Document",
@@ -506,8 +481,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IStockRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:32:29.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:32:29.756Z"
             },
             {
               "$type": "Document",
@@ -519,8 +493,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IOrderRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:37:26.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:37:26.242Z"
             },
             {
               "$type": "Document",
@@ -532,8 +505,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\ICategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:15:41.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:15:41.972Z"
             },
             {
               "$type": "Document",
@@ -545,8 +517,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\ICategoryQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:15:56.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:15:56.162Z"
             },
             {
               "$type": "Document",
@@ -558,8 +529,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\readme.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-01-01T10:18:30.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:18:30.539Z"
             },
             {
               "$type": "Document",
@@ -571,8 +541,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:31:06.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:31:06.426Z"
             },
             {
               "$type": "Document",
@@ -584,8 +553,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:31:20.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:31:20.691Z"
             }
           ]
         }

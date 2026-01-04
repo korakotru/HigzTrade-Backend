@@ -17,3 +17,4 @@ C:\Korakot\Projects\HigzTrade\HigzTrade-Backend\HigzTrade.Infrastructure\bin\Deb
 C:\Korakot\Projects\HigzTrade\HigzTrade-Backend\HigzTrade.Infrastructure\obj\Debug\net8.0\HigzTrade.Infrastructure.genruntimeconfig.cache
 C:\Korakot\Projects\HigzTrade\HigzTrade-Backend\HigzTrade.Infrastructure\bin\Debug\net8.0\HigzTrade.Application.dll
 C:\Korakot\Projects\HigzTrade\HigzTrade-Backend\HigzTrade.Infrastructure\bin\Debug\net8.0\HigzTrade.Application.pdb
+C:\Korakot\Projects\HigzTrade\HigzTrade-Backend\HigzTrade.Infrastructure\obj\Debug\net8.0\HigzTrade.Infrastructure.sourcelink.json

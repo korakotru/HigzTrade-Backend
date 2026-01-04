@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\usecases\\products\\createproductusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\usecases\\orders\\placeorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\usecases\\orders\\placeorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\istockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\istockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{CD6A2B75-B68A-4995-BD2B-458DAE359E58}|HigzTrade.Infrastructure\\HigzTrade.Infrastructure.csproj|solutionrelative:higztrade.infrastructure\\persistence\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\dtos\\requests\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\dtos\\requests\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -55,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\usecases\\orders\\placeorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\usecases\\orders\\placeorderusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -73,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\iappunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\iappunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\interfaces\\istockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|solutionrelative:higztrade.application\\interfaces\\istockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6906ED50-0B55-4214-A3E1-445F973AD108}|HigzTrade.Application\\HigzTrade.Application.csproj|c:\\korakot\\projects\\higztrade\\higztrade-backend\\higztrade.application\\readmodels\\orders\\getorderlistrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,7 +146,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
@@ -155,12 +155,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T15:12:28.715Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ProductResponse.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\DTOs\\Responses\\ProductResponse.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\DTOs\\Responses\\ProductResponse.cs",
@@ -169,8 +168,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:07:47.466Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -180,7 +178,7 @@
               "RelativeDocumentMoniker": "HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
               "ToolTip": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
               "RelativeToolTip": "HigzTrade.Application\\UseCases\\Products\\CreateProductUseCase.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAIA3wDgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:08:00.016Z",
               "IsPinned": true,
@@ -188,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\IProductRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\IProductRepository.cs",
@@ -197,8 +195,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T14:01:57.729Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -211,8 +208,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T19:05:33.501Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -225,12 +221,11 @@
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T13:01:45.561Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ProductRequest.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\DTOs\\Requests\\ProductRequest.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\DTOs\\Requests\\ProductRequest.cs",
@@ -239,12 +234,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-25T18:07:43.259Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.TradeApi\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "HigzTrade.TradeApi\\Controllers\\ProductController.cs",
@@ -253,12 +247,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T17:04:57.482Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.TradeApi\\Program.cs",
               "RelativeDocumentMoniker": "HigzTrade.TradeApi\\Program.cs",
@@ -267,8 +260,7 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAwwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-30T16:54:32.679Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -281,8 +273,7 @@
               "ViewState": "AgIAAAcAAAAAAAAAAAAUwCYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-25T18:24:48.834Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -298,8 +289,7 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:00.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:00.357Z"
             },
             {
               "$type": "Document",
@@ -311,8 +301,7 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.production.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:24.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:24.597Z"
             },
             {
               "$type": "Document",
@@ -324,12 +313,11 @@
               "RelativeToolTip": "HigzTrade.TradeApi\\appsettings.staging.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-25T18:27:36.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:27:36.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "IAppUnitOfWork.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\IAppUnitOfWork.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\IAppUnitOfWork.cs",
@@ -337,8 +325,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IAppUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T18:53:00.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T18:53:00.208Z"
             },
             {
               "$type": "Document",
@@ -350,8 +337,7 @@
               "RelativeToolTip": "HigzTrade.Domain\\Events\\Product\\CreateProductDomainEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T19:05:26.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T19:05:26.897Z"
             },
             {
               "$type": "Document",
@@ -363,8 +349,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\OrderSummaryReadModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:32.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:32.923Z"
             },
             {
               "$type": "Document",
@@ -376,8 +361,7 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\GetOrderListRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:41.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:41.555Z"
             },
             {
               "$type": "Document",
@@ -389,12 +373,11 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Orders\\GetOrderListHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:42.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:42.67Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "PlaceOrderUseCase.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\UseCases\\Orders\\PlaceOrderUseCase.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\UseCases\\Orders\\PlaceOrderUseCase.cs",
@@ -402,12 +385,11 @@
               "RelativeToolTip": "HigzTrade.Application\\UseCases\\Orders\\PlaceOrderUseCase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-30T13:50:48.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-30T13:50:48.336Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "HigzTrade.Infrastructure\\DependencyInjection.cs",
@@ -415,12 +397,11 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T11:23:44.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T11:23:44.978Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\DependencyInjection.cs",
@@ -428,8 +409,7 @@
               "RelativeToolTip": "HigzTrade.Application\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T11:31:53.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T11:31:53.912Z"
             },
             {
               "$type": "Document",
@@ -441,8 +421,7 @@
               "RelativeToolTip": "HigzTrade.Domain\\Entities\\Generated\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T13:33:27.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T13:33:27.659Z"
             },
             {
               "$type": "Document",
@@ -454,8 +433,7 @@
               "RelativeToolTip": "HigzTrade.Application\\Exceptions\\BusinessException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T14:58:47.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T14:58:47.685Z"
             },
             {
               "$type": "Document",
@@ -467,8 +445,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\ExternalServices\\EmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-31T15:02:33.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T15:02:33.207Z"
             },
             {
               "$type": "Document",
@@ -480,12 +457,11 @@
               "RelativeToolTip": "Serilog.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-31T16:30:23.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-31T16:30:23.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CategoryReadModel.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\ReadModels\\Categories\\CategoryReadModel.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\ReadModels\\Categories\\CategoryReadModel.cs",
@@ -493,25 +469,23 @@
               "RelativeToolTip": "HigzTrade.Application\\ReadModels\\Categories\\CategoryReadModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:30:41.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:30:41.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 3,
               "Title": "IStockRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\IStockRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\IStockRepository.cs",
               "ToolTip": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\IStockRepository.cs",
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IStockRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:32:29.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:32:29.756Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "IOrderRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\IOrderRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\IOrderRepository.cs",
@@ -519,12 +493,11 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\IOrderRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T09:37:26.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T09:37:26.242Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\ICategoryRepository.cs",
@@ -532,12 +505,11 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\ICategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:15:41.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:15:41.972Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ICategoryQuery.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\ICategoryQuery.cs",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\ICategoryQuery.cs",
@@ -545,12 +517,11 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\ICategoryQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:15:56.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:15:56.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "readme.txt",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Application\\Interfaces\\readme.txt",
               "RelativeDocumentMoniker": "HigzTrade.Application\\Interfaces\\readme.txt",
@@ -558,12 +529,11 @@
               "RelativeToolTip": "HigzTrade.Application\\Interfaces\\readme.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-01-01T10:18:30.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:18:30.539Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryRepository.cs",
@@ -571,12 +541,11 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:31:06.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:31:06.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CategoryQuery.cs",
               "DocumentMoniker": "C:\\Korakot\\Projects\\HigzTrade\\HigzTrade-Backend\\HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryQuery.cs",
               "RelativeDocumentMoniker": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryQuery.cs",
@@ -584,8 +553,7 @@
               "RelativeToolTip": "HigzTrade.Infrastructure\\Persistence\\Repositories\\CategoryQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-01T10:31:20.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-01T10:31:20.691Z"
             }
           ]
         }
