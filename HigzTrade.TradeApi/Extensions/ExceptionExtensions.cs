@@ -1,5 +1,7 @@
 ﻿using Hangfire;
 using HigzTrade.Infrastructure.BackgroundJobs;
+using HigzTrade.Infrastructure.ExternalServices;
+using HigzTrade.Infrastructure.Persistence.Repositories;
 using HigzTrade.TradeApi.Helpers;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,7 @@ namespace HigzTrade.TradeApi.Extensions
             app.UseExceptionHandler(errorApp =>
             {
                 errorApp.Run(async ctx =>
-                { 
+                {
 
                     var env = ctx.RequestServices.GetRequiredService<IHostEnvironment>();
                     var logger = ctx.RequestServices.GetRequiredService<ILogger<Program>>();
@@ -61,6 +63,8 @@ namespace HigzTrade.TradeApi.Extensions
                                 ex.StackTrace ?? string.Empty));
                     } 
 
+
+                    // Handle Response
                     ctx.Response.Clear();
                     ctx.Response.StatusCode = status;
                     ctx.Response.ContentType = "application/problem+json";

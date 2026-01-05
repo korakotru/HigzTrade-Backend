@@ -1,33 +1,28 @@
 ﻿using Hangfire;
 using HigzTrade.Application;
 using HigzTrade.Infrastructure;
-using HigzTrade.TradeApi.Constants;
 using HigzTrade.TradeApi.Extensions;
 using HigzTrade.TradeApi.Helpers;
 using HigzTrade.TradeApi.Middlewares;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http.Timeouts;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using System;
-using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
-//Register & Configure
+//register services/configurations เข้าไปใน DI container (Dependency Injection)
 
 // บังคับ Environment ตามโหมดการคอมไพล์
 #if DEBUG
-    builder.Environment.EnvironmentName = "Development";
+builder.Environment.EnvironmentName = "Development";
 #elif RELEASE
     builder.Environment.EnvironmentName = "Staging";
 #elif PRODUCTION
     builder.Environment.EnvironmentName = "Production";
 #endif
 
-
-
+ 
 builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);// อ่าน config จาก appsettings.json ทั้งหมดอัตโนมัติ
@@ -61,7 +56,21 @@ else // builder.Environment.IsStaging(), builder.Environment.IsDevelopment()
 }
 
 
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ApiSuccessResponseFilter>(); // Customize Format for ApiResponse on Success (no need to wrap response in api controller) 
+}).AddJsonOptions( options => {
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; // แปลง response เป็น camelCase อัตโนมัติ
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); // แปลง enum เป็น string แทนตัวเลข อัตโนมัติ
+});
+ 
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddRouting(options =>
+{
+    options.LowercaseUrls = true; // บังคับให้ RequestPath เป็น ตัวพิมพ์เล็กทั้งหมด ป้องกัน server บางตัวเป็น case-sensitive
+    options.LowercaseQueryStrings = false;// ไม่แปลง queryString เป็น lowercase
+});
 
 
 /*
@@ -73,33 +82,18 @@ builder.Services.AddApplication(); //register application service
 
 
 
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer(); 
-
-
 /*
  Security Configs
  */
-builder.Services.AddRequestTimeouts(options => {
-    // ตั้งค่าเริ่มต้นให้ทุก Request ต้องจบภายใน 15 วินาที (ป้องกัน Slowloris Attack และป้องกัน thread ไปค้างที่ request บางตัวที่ช้าผิดปกติ )
-    options.DefaultPolicy = new RequestTimeoutPolicy
-    {
-        Timeout = TimeSpan.FromSeconds(15),
-        TimeoutStatusCode = 504
-    };
+builder.Services.AddCustomRequestTimeouts();
+builder.Services.AddCustomRateLimiter();
 
-    // สำหรับ process ที่ต้องประมวลผลนานกว่าปกติ
-    //options.AddPolicy(RequestTimeoutCustomPolicy.BigDataProcessingPolicy, new RequestTimeoutPolicy
-    //{
-    //    Timeout = TimeSpan.FromMinutes(2),
-    //    TimeoutStatusCode = 504
-    //});
-});
-
-
+/**********************************************************************************/
 var app = builder.Build();
-// Configure the HTTP request pipeline.  
+// Configure pipeline. (by sequence)
+
+app.UseRateLimiter(); // Security policy first
+
 
 //ตัว Log Request (Serilog.AspNetCore)
 //app.UseSerilogRequestLogging(options => options.ConfigCustomOptions());
@@ -108,9 +102,8 @@ app.UseSerilogRequestLogging(options => {
 });
 
 //ตัวจับ Error
-//app.UseMiddleware<ExceptionHandlingMiddleware>();
-app.UseCustomExceptionHandler();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+//app.UseCustomExceptionHandler();
 
 
 if (! builder.Environment.IsProduction())
@@ -126,14 +119,10 @@ app.UseHangfireDashboard(); // hangfire dashboard
 app.UseHttpsRedirection();// บังคับให้ทุกๆ request ใช้ https อัตโนมัติ
 //app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
+app.MapControllers(); 
 
 
-// ** RateLimit (to endpoint or page)
-//app.MapGet("/api/resource", () => "This endpoint is rate limited")
-//   .RequireRateLimiting("fixed"); // Apply specific policy to an endpoint
-
-
+/**********************************************************************************/
 app.Run();
 
 

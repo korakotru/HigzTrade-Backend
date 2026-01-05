@@ -11,14 +11,13 @@ public partial class Product
        decimal price,
        int categoryId)
     {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new DomainException("Name is required");
+        var errors = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(sku))
-            throw new DomainException("Sku is required");
+        if (string.IsNullOrWhiteSpace(name)) errors.Add("Name is required");
+        if (string.IsNullOrWhiteSpace(sku)) errors.Add("Sku is required");
+        if (price <= 0) errors.Add("Price must be greater than zero");
 
-        if (price <= 0)
-            throw new DomainException("Price must be greater than zero");
+        if (errors.Any()) throw new BusinessException(errors);
 
         return new Product
         {

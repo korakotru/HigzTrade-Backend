@@ -1,8 +1,7 @@
 ﻿using HigzTrade.Application.DTOs.Requests;
 using HigzTrade.Application.DTOs.Responses;
-using HigzTrade.Application.Exceptions;
 using HigzTrade.Domain.Entities;
-//using HigzTrade.Application.Interfaces;
+using HigzTrade.Domain.Exceptions;
 using HigzTrade.Infrastructure.Persistence.Repositories;
 using HigzTrade.Infrastructure.Persistence.UnitOfWork;
 
@@ -13,37 +12,48 @@ namespace HigzTrade.Application.UseCases.Products
         private readonly ProductRepository _productRepository;
         private readonly EfUnitOfWork _uow;
         private readonly CategoryQuery _categoryQuery;
+        private readonly ProductQuery _productQuery;
 
         public CreateProductUseCase(
             ProductRepository productRepository,
+            ProductQuery productQuery,
             EfUnitOfWork uow,
             CategoryQuery categoryQuery)
         {
             _productRepository = productRepository;
             _uow = uow;
             _categoryQuery = categoryQuery;
+            _productQuery = productQuery;
         }
 
         public async Task<CreateProductResponse> CreateAsync(
             CreateProductRequest request,
             CancellationToken ct)
         {
+            var errors = new List<string>();
             Product product = null!;
 
-            if (!await _categoryQuery.CategoryIsExists(request.CategoryId, ct))
+            try
             {
-                //throw new BusinessException("Invalid Category");
-                throw new InvalidTimeZoneException();
+                if (!await _categoryQuery.IsCategoryExists(request.CategoryId, ct)) errors.Add("Invalid Category");
+                if (!await _productQuery.IsSkuExists(request.Sku, ct)) errors.Add("SKU already exists.");
+
+                product = Product.Create(request.Name, request.Sku, request.Price, request.CategoryId);
+
+            }
+            catch (BusinessException ex)
+            {
+                errors.AddRange(ex.Errors);
+            }
+
+            if (errors.Any())
+            {
+                throw new BusinessException(errors);
             }
 
             await _uow.ExecuteAsync(async (token) =>
             {
                 // ใช้ 'token' ภายในนี้ หากมีการเรียก Async Methods อื่นๆ
-                product = Product.Create(
-                    request.Name,
-                    request.Sku,
-                    request.Price,
-                    request.CategoryId);
 
                 _productRepository.Add(product);
                 //await _productRepository.AddAsync(product, token);
@@ -51,7 +61,7 @@ namespace HigzTrade.Application.UseCases.Products
                 //return Task.CompletedTask;
 
             }, ct);
-            
+
             return new CreateProductResponse(product.ProductId);
         }
     }

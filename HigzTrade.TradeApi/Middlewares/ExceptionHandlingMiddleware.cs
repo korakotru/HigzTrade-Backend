@@ -1,18 +1,10 @@
 ﻿using Hangfire;
 using HigzTrade.Domain.Exceptions;
 using HigzTrade.Infrastructure.BackgroundJobs;
-using HigzTrade.Infrastructure.ExternalServices;
 using HigzTrade.TradeApi.Helpers;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using HigzTrade.TradeApi.HttpResponseModels;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using Serilog.Context;
-using Serilog.Extensions.Hosting;
-using System.Net;
-using System.Reflection;
-using System.Text.Json;
 
 namespace HigzTrade.TradeApi.Middlewares
 {
@@ -38,90 +30,83 @@ namespace HigzTrade.TradeApi.Middlewares
         {
             try
             {
-                await _next(ctx);
+                await _next(ctx); // โค้ด try-catch ครอบการเรียก _next(context) *** เพราะเราออกแบบ class นีให้เป็น ExceptionHandlingMiddleware 
             }
             catch (OperationCanceledException)
             {
-                // request ถูก cancel → ไม่ต้อง log เป็น error
+                // request ถูก cancel ไม่ต้อง log เป็น error
                 ctx.Response.StatusCode = 499; // Client Closed Request
+            }
+            catch (BusinessException ex)
+            {
+                await ExceptionHandleAsync(ctx, ex);
+            }
+            catch (DbUpdateException ex)
+            {
+                await ExceptionHandleAsync(ctx, ex.GetBaseException());
             }
             catch (Exception ex)
             {
                 await ExceptionHandleAsync(ctx, ex);
             }
         }
-
         private async Task ExceptionHandleAsync(HttpContext ctx, Exception ex)
-        { 
-
+        {
             if (ctx.Response.HasStarted)
             {
-                _log.LogWarning(ex, "Response already started, cannot write error response"); 
-                return;//throw;
+                _log.LogWarning(
+                    ex,
+                    "Response already started, cannot write error response");
+                return;
             }
 
-            var (title, status) = ExceptionHelper.GetErrorInfo(ex);
-            string errorDetail = ex.Message; 
+            (string title, int status) = ExceptionHelper.GetErrorInfo(ex);
+            var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
+            diagnosticContext.Set("Title", status >= 500 ? "Error" : "Success");
+            diagnosticContext.Set("IsError", status >= 500);
+            diagnosticContext.Set("Detail", ex.Message);
+            diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
+            diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
+            diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
+            diagnosticContext.Set("StackTrace", status == 400 ? ex.StackTrace?.Substring(0, 500) ?? "" : ex.StackTrace);
 
+
+            string[] errors;
+            // ===== Side effect เฉพาะ Server Error =====
             if (status >= 500)
             {
-                if (_env.IsProduction()) { errorDetail = "Internal error, please contact customer support."; } // ซ่อนข้อความจริงและส่งเมลแจ้งเตือน(ถ้าเป็น production)
+                errors = new[] { _env.IsProduction() ?  "Error occurred, please contact support team." : ex.Message };
 
-                // Send email included critical error detail to application support
                 BackgroundJob.Enqueue<SendApplicationErrorEmailJob>(job =>
-                       job.ExecuteAsync(
-                           ctx.TraceIdentifier,
-                           status,
-                           title,
-                           ex.Message,
-                           ex.StackTrace ?? string.Empty));
-
-                //_ = Task.Run(async () =>
-                //{
-                //    try
-                //    {
-                //        await mailService.SendApplicationErrorEmailAsync(ctx.TraceIdentifier, status, title, ex.Message, ex.StackTrace ?? "");
-                //    }
-                //    catch (Exception mailEx)
-                //    {
-                //        // ต้องมี try-catch ครอบเสมอ! 
-                //        // เพราะถ้าพังตรงนี้แล้วไม่มีใครจับ มันจะทำให้ Process หลักมีปัญหา
-                //        Log.Error(mailEx, "Failed to send error email in background");
-                //    }
-                //});
+                    job.ExecuteAsync(
+                        ctx.TraceIdentifier,
+                        status,
+                        title,
+                        ex.Message,
+                        ex.StackTrace ?? string.Empty));
             }
-
-
-            // Structured logging → ทำงานร่วมกับ Serilog / Seq ได้
-            //_log.LogError(ex, "{ErrorTitle} at {Path} (Status={Status})", title, ctx.Request.Path, status); // ให้ Serilog ทำการ log ทีเดียว
-             
-
+            else if (ex is BusinessException bizEx)
+            {
+                errors = bizEx.Errors.ToArray();
+            }
+            else
+            {
+                errors = new[] { ex.Message };
+            }
 
             ctx.Response.Clear();
             ctx.Response.StatusCode = status;
-            ctx.Response.ContentType = "application/problem+json";
+            ctx.Response.ContentType = "application/json";
 
-            var problem = new ProblemDetails
+            var response = new ApiErrorResponse
             {
                 Title = title,
                 Status = status,
-                Detail = errorDetail,
-                Instance = ctx.Request.Path
+                Errors = errors,
+                TraceId = ctx.TraceIdentifier
             };
 
-            // แสดง stack trace เฉพาะ DEV
-            problem.Extensions["traceId"] = ctx.TraceIdentifier;
-            if (_env.IsDevelopment())
-            {
-                problem.Extensions["stackTrace"] = ex.StackTrace;
-            }
-            problem.Extensions["build"] = AppVersionHelpers.GetBuildVersion();
-
-            var json = JsonSerializer.Serialize(
-                problem,
-                new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-
-            await ctx.Response.WriteAsync(json);
+            await ctx.Response.WriteAsJsonAsync(response);
         }
     }
 }

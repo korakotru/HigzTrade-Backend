@@ -26,7 +26,7 @@ namespace HigzTrade.Infrastructure
 
 
             // Register Hangfire
-            services.AddHangfire(configuration => configuration
+            services.AddHangfire(config => config
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
                     .UseSimpleAssemblyNameTypeSerializer()
                     .UseRecommendedSerializerSettings()
@@ -63,7 +63,8 @@ namespace HigzTrade.Infrastructure
                 .AddClasses(classes => classes
                     .Where(type => type.Namespace != null &&
                                    type.Namespace.StartsWith("HigzTrade.Infrastructure.ExternalServices")
-                                   && type.Name.EndsWith("Service"))
+                                   //&& type.Name.EndsWith("Service")
+                                   )
                 )
                 .AsSelf() // Dependency Injection (direct injection to self class)
                 .WithScopedLifetime());

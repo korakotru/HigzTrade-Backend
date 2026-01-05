@@ -4,11 +4,13 @@ using HigzTrade.TradeApi.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Options;
 
 namespace HigzTrade.TradeApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableRateLimiting(RateLimitPolicy.DefaultRateLimit)]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -19,7 +21,7 @@ namespace HigzTrade.TradeApi.Controllers
             _createProduct = createProduct;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> Create(
             [FromBody] CreateProductRequest request,
             CancellationToken ct)
@@ -27,7 +29,7 @@ namespace HigzTrade.TradeApi.Controllers
             var result = await _createProduct.CreateAsync(request, ct);
             return Ok(result);
         }
-        
+
         //[HttpGet]
         //[RequestTimeout(RequestTimeoutCustomPolicy.BigDataProcessingPolicy)]
         //public async Task<IActionResult> LongtimeProcessing(CancellationToken ct)

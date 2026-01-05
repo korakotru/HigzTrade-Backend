@@ -10,20 +10,24 @@
   <ItemGroup>
     <Compile Remove="DTOs\Requests\ReadModels\**" />
     <Compile Remove="DTOs\Responses\ReadModels\**" />
+    <Compile Remove="Exceptions\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="ReadModels\**" />
     <EmbeddedResource Remove="DTOs\Requests\ReadModels\**" />
     <EmbeddedResource Remove="DTOs\Responses\ReadModels\**" />
+    <EmbeddedResource Remove="Exceptions\**" />
     <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="ReadModels\**" />
     <None Remove="DTOs\Requests\ReadModels\**" />
     <None Remove="DTOs\Responses\ReadModels\**" />
+    <None Remove="Exceptions\**" />
     <None Remove="Interfaces\**" />
     <None Remove="ReadModels\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Scrutor" Version="7.0.0" />
   </ItemGroup>
