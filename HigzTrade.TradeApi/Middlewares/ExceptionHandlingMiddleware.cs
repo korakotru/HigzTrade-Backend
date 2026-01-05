@@ -61,21 +61,16 @@ namespace HigzTrade.TradeApi.Middlewares
             }
 
             (string title, int status) = ExceptionHelper.GetErrorInfo(ex);
-            var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
-            diagnosticContext.Set("Title", status >= 500 ? "Error" : "Success");
-            diagnosticContext.Set("IsError", status >= 500);
-            diagnosticContext.Set("Detail", ex.Message);
-            diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
-            diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
-            diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
-            diagnosticContext.Set("StackTrace", status == 400 ? ex.StackTrace?.Substring(0, 500) ?? "" : ex.StackTrace);
+  
 
 
             string[] errors;
+            string? stackTrace = "";
+
             // ===== Side effect เฉพาะ Server Error =====
             if (status >= 500)
             {
-                errors = new[] { _env.IsProduction() ?  "Error occurred, please contact support team." : ex.Message };
+                errors = new[] { !_env.IsDevelopment() ?  "Error occurred, please contact support team." : ex.Message };
 
                 BackgroundJob.Enqueue<SendApplicationErrorEmailJob>(job =>
                     job.ExecuteAsync(
@@ -88,11 +83,22 @@ namespace HigzTrade.TradeApi.Middlewares
             else if (ex is BusinessException bizEx)
             {
                 errors = bizEx.Errors.ToArray();
+                stackTrace = bizEx.StackTrace;
             }
             else
             {
                 errors = new[] { ex.Message };
+                stackTrace = ex.StackTrace;
             }
+
+            var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
+            diagnosticContext.Set("Title", status >= 500 ? "Error" : "Success");
+            diagnosticContext.Set("IsError", status >= 500);
+            diagnosticContext.Set("Detail", $"{title} : '{string.Join("', '", errors)}'");
+            diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
+            diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
+            diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
+            diagnosticContext.Set("StackTrace", status == 400 ? stackTrace.Substring(0,300) : stackTrace);
 
             ctx.Response.Clear();
             ctx.Response.StatusCode = status;

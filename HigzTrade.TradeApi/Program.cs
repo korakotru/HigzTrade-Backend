@@ -32,7 +32,6 @@ builder.Host.UseSerilog((context, configuration) =>
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);//global configuration 
 if (builder.Environment.IsProduction())
 {
-    // เฉพาะ Development เท่านั้น
     // เฉพาะ Production
     builder.Configuration
         .AddJsonFile("appsettings.Production.json", optional: true, reloadOnChange: true) /*optional: true เป็นข้อมูล sensitive ไม่ต้องมีใน project dev ก็ได้*/
@@ -106,7 +105,7 @@ app.UseMiddleware<ExceptionHandlingMiddleware>();
 //app.UseCustomExceptionHandler();
 
 
-if (! builder.Environment.IsProduction())
+if (builder.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

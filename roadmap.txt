@@ -1,7 +1,6 @@
 - Clean Architecture + DDD ***minimal-version*** ไม่ implement Clean Architecture เต็มระบบ (ไม่ใช้ interface เพื่อลดงานและความซับซ้อน)
 	+ Domain-Layer
 	+ Application-Layer
-		+ ReadModel
 	+ Infrastructure-Layer
 	+ Presentation/API - Layer
 - EF Core 
@@ -9,14 +8,18 @@
 	+ EFNamingConvention 
 	+ Unit of Work 
 	+ SQL Server
+	+ Repository & ReadModel
 - Dependency Injection (scrutor)
 - BackgroundJob (Hangfire)
-- Logging (Serilog)
+- Logging (Serilog) 
 - Validation (FluentValidation)
 - .Net Core API
+	+ ApiResponse standard (SuccessResponse using Filter, ErrorResponse with custom values)
 	+ Program.cs 
 		+ Environment configuration by compile-mode
 		+ Register Service/Configuration 
 		+ CustomExtensions ( RateLimiter, RequestTimeouts )
 		+ CustomMiddlewares (ExceptionHandleMiddleware)
+	+ Product CRUD Showcase
+
 		

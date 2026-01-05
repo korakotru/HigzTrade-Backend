@@ -16,7 +16,7 @@ namespace HigzTrade.Infrastructure
             var connectionString = configuration.GetConnectionString("Database");
 
             // แยกการ Register DbContext มาไว้ที่นี่
-            services.AddDbContext<HigzTradeDbContext>(options =>
+            services.AddDbContextPool<HigzTradeDbContext>(options =>
             {
 
                 options.UseSqlServer(connectionString);

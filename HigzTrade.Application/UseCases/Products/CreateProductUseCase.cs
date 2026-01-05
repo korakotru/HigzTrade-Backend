@@ -36,7 +36,7 @@ namespace HigzTrade.Application.UseCases.Products
             try
             {
                 if (!await _categoryQuery.IsCategoryExists(request.CategoryId, ct)) errors.Add("Invalid Category");
-                if (!await _productQuery.IsSkuExists(request.Sku, ct)) errors.Add("SKU already exists.");
+                if (await _productQuery.IsSkuExists(request.Sku, ct)) errors.Add("SKU already exists.");
 
                 product = Product.Create(request.Name, request.Sku, request.Price, request.CategoryId);
 
