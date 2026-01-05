@@ -1,9 +1,10 @@
 ﻿using HigzTrade.Application.DTOs.Requests;
 using HigzTrade.Application.DTOs.Responses;
+using HigzTrade.Application.Exceptions;
+using HigzTrade.Domain.Entities;
 //using HigzTrade.Application.Interfaces;
 using HigzTrade.Infrastructure.Persistence.Repositories;
 using HigzTrade.Infrastructure.Persistence.UnitOfWork;
-using HigzTrade.Domain.Entities;
 
 namespace HigzTrade.Application.UseCases.Products
 {
@@ -29,10 +30,11 @@ namespace HigzTrade.Application.UseCases.Products
         {
             Product product = null!;
 
-            //if (! await _categoryQuery.CategoryIsExists(request.CategoryId,ct))
-            //{
-            //    throw new ApplicationException("Invalid Category");
-            //}
+            if (!await _categoryQuery.CategoryIsExists(request.CategoryId, ct))
+            {
+                //throw new BusinessException("Invalid Category");
+                throw new InvalidTimeZoneException();
+            }
 
             await _uow.ExecuteAsync(async (token) =>
             {
@@ -44,11 +46,9 @@ namespace HigzTrade.Application.UseCases.Products
                     request.CategoryId);
 
                 _productRepository.Add(product);
-
-
                 //await _productRepository.AddAsync(product, token);
-                await Task.CompletedTask;
-                //return Task.CompletedTask;    
+                await Task.CompletedTask; //ไม่จำเป็นต้องมี async/await ถ้า code ใน scope นี้ไม่มี call async method
+                //return Task.CompletedTask;
 
             }, ct);
             

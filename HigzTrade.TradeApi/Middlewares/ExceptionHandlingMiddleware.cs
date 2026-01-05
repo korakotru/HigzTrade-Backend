@@ -1,32 +1,36 @@
-﻿using HigzTrade.Domain.Exceptions;
+﻿using Hangfire;
+using HigzTrade.Domain.Exceptions;
+using HigzTrade.Infrastructure.BackgroundJobs;
+using HigzTrade.Infrastructure.ExternalServices;
 using HigzTrade.TradeApi.Helpers;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Serilog.Context;
+using Serilog.Extensions.Hosting;
 using System.Net;
 using System.Reflection;
 using System.Text.Json;
-using HigzTrade.Infrastructure.ExternalServices;
 
 namespace HigzTrade.TradeApi.Middlewares
 {
+    // เหตุผลที่ควรแยก ExceptionHandlerMiddleware ออกมา เพราะจะ customize ได้มากกว่า app.UseExceptionHandler เช่น การ inject MailService เพื่อให้สามารถส่งเมลล์ให้ support เมื่อเกิด error 500 เป็นต้น
     public sealed class ExceptionHandlingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ILogger<ExceptionHandlingMiddleware> _log;
         private readonly IHostEnvironment _env;
-        private readonly MailService _mailService;
 
         public ExceptionHandlingMiddleware(
             RequestDelegate next,
             ILogger<ExceptionHandlingMiddleware> log,
-            IHostEnvironment env,
-            MailService mailService)
+            IHostEnvironment env)
         {
             _next = next;
             _log = log;
             _env = env;
-            _mailService = mailService;//todo:korakot - send email to support, when error 500 occurred.
         }
 
         // Method ชื่อ Invoke หรือ InvokeAsync: Framework จะมองหา Method ที่มีชื่อเป๊ะๆ แบบนี้ และต้องรับ HttpContext เป็น Parameter ตัวแรกเสมอ
@@ -48,22 +52,50 @@ namespace HigzTrade.TradeApi.Middlewares
         }
 
         private async Task ExceptionHandleAsync(HttpContext ctx, Exception ex)
-        {
+        { 
+
             if (ctx.Response.HasStarted)
             {
-                _log.LogWarning(ex, "Response already started, cannot write error response");
-                //throw;
-                return;
+                _log.LogWarning(ex, "Response already started, cannot write error response"); 
+                return;//throw;
             }
 
             var (title, status) = ExceptionHelper.GetErrorInfo(ex);
+            string errorDetail = ex.Message; 
+
+            if (status >= 500)
+            {
+                if (_env.IsProduction()) { errorDetail = "Internal error, please contact customer support."; } // ซ่อนข้อความจริงและส่งเมลแจ้งเตือน(ถ้าเป็น production)
+
+                // Send email included critical error detail to application support
+                BackgroundJob.Enqueue<SendApplicationErrorEmailJob>(job =>
+                       job.ExecuteAsync(
+                           ctx.TraceIdentifier,
+                           status,
+                           title,
+                           ex.Message,
+                           ex.StackTrace ?? string.Empty));
+
+                //_ = Task.Run(async () =>
+                //{
+                //    try
+                //    {
+                //        await mailService.SendApplicationErrorEmailAsync(ctx.TraceIdentifier, status, title, ex.Message, ex.StackTrace ?? "");
+                //    }
+                //    catch (Exception mailEx)
+                //    {
+                //        // ต้องมี try-catch ครอบเสมอ! 
+                //        // เพราะถ้าพังตรงนี้แล้วไม่มีใครจับ มันจะทำให้ Process หลักมีปัญหา
+                //        Log.Error(mailEx, "Failed to send error email in background");
+                //    }
+                //});
+            }
 
 
             // Structured logging → ทำงานร่วมกับ Serilog / Seq ได้
             //_log.LogError(ex, "{ErrorTitle} at {Path} (Status={Status})", title, ctx.Request.Path, status); // ให้ Serilog ทำการ log ทีเดียว
+             
 
-            // เก็บ Exception ไว้ใน Feature เพื่อให้ Serilog (DiagnosticContext) มองเห็น
-            ctx.Features.Set<IExceptionHandlerFeature>(new ExceptionHandlerFeature { Error = ex });
 
             ctx.Response.Clear();
             ctx.Response.StatusCode = status;
@@ -73,7 +105,7 @@ namespace HigzTrade.TradeApi.Middlewares
             {
                 Title = title,
                 Status = status,
-                Detail = (ex is DbUpdateException) ? ex.Message : "Internal error, please contact customer support.",
+                Detail = errorDetail,
                 Instance = ctx.Request.Path
             };
 
