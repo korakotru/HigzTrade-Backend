@@ -1,6 +1,7 @@
 ﻿//using HigzTrade.Application.Interfaces;
 using HigzTrade.Domain.Entities;
 using HigzTrade.Infrastructure.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
@@ -30,6 +31,11 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
         public void Add(Product product)
         {
             _db.Products.Add(product);
+        }
+
+        public async Task<Product?> GetById(int productId)
+        {
+            return await _db.Products.Where(x => x.ProductId == productId).SingleOrDefaultAsync();
         }
         //public async Task AddAsync(Product product, CancellationToken ct)
         //{

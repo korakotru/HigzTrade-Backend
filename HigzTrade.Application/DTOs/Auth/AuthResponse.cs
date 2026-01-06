@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HigzTrade.Application.DTOs.Responses
+namespace HigzTrade.Application.DTOs.Auth
 {
     public class AuthResponse
     {

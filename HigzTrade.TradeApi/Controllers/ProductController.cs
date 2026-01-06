@@ -1,4 +1,4 @@
-﻿using HigzTrade.Application.DTOs.Requests;
+﻿using HigzTrade.Application.DTOs.Products;
 using HigzTrade.Application.UseCases.Products;
 using HigzTrade.TradeApi.Constants;
 using Microsoft.AspNetCore.Http;
@@ -15,19 +15,29 @@ namespace HigzTrade.TradeApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly CreateProductUseCase _createProduct;
+        private readonly UpdatePriceUseCase _updatePrice;
 
-        public ProductController(CreateProductUseCase createProduct)
+        public ProductController(CreateProductUseCase createProduct,
+            UpdatePriceUseCase updatePrice)
         {
             _createProduct = createProduct;
+            _updatePrice = updatePrice;
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> Create(
-            [FromBody] CreateProductRequest request,
+            [FromBody] CreateProductDto.Request request,
             CancellationToken ct)
         {
-            var result = await _createProduct.CreateAsync(request, ct);
-            return Ok(result);
+            return Ok(await _createProduct.CreateAsync(request, ct));
+        }
+
+        [HttpPut("update-price")]
+        public async Task<IActionResult> UpdatePrice(
+            [FromBody] UpdatePriceDto.Request request,
+            CancellationToken ct)
+        {
+            return Ok(await _updatePrice.UpdatePriceAsync(request, ct));
         }
 
         //[HttpGet]

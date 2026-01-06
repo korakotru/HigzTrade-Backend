@@ -28,6 +28,8 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Scrutor" Version="7.0.0" />
   </ItemGroup>
@@ -35,6 +37,11 @@
   <ItemGroup>
     <ProjectReference Include="..\HigzTrade.Domain\HigzTrade.Domain.csproj" />
     <ProjectReference Include="..\HigzTrade.Infrastructure\HigzTrade.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Requests\" />
+    <Folder Include="DTOs\Responses\" />
   </ItemGroup>
 
 </Project>

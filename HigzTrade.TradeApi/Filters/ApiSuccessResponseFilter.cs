@@ -38,5 +38,6 @@ public sealed class ApiSuccessResponseFilter : IAsyncResultFilter
         }
 
         await next();
+
     }
 }

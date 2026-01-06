@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{8EC462FD
 		architecture.txt = architecture.txt
 		EfScraffold.txt = EfScraffold.txt
 		Hangfire.txt = Hangfire.txt
+		Mapster.txt = Mapster.txt
 		roadmap.txt = roadmap.txt
 		Serilog.txt = Serilog.txt
 		StepToInitialize.txt = StepToInitialize.txt

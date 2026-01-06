@@ -1,11 +1,15 @@
 ﻿using HigzTrade.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HigzTrade.Domain.Entities;
 public partial class Product
 {
-    public static Product Create(
+    private Product() { }
+    internal static Product Create(
        string name,
        string sku,
        decimal price,
@@ -13,11 +17,12 @@ public partial class Product
     {
         var errors = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(name)) errors.Add("Name is required");
-        if (string.IsNullOrWhiteSpace(sku)) errors.Add("Sku is required");
-        if (price <= 0) errors.Add("Price must be greater than zero");
+        ValidateName(name, errors);
+        ValidateSku(sku, errors);
+        ValidatePrice(price, errors);
 
-        if (errors.Any()) throw new BusinessException(errors);
+        if (errors.Any())
+            throw new BusinessException(errors);
 
         return new Product
         {
@@ -29,4 +34,35 @@ public partial class Product
             CreatedAt = DateTime.UtcNow
         };
     }
+
+    public void UpdatePrice(decimal price)
+    {
+        var errors = new List<string>();
+
+        ValidatePrice(price, errors);
+
+        if (errors.Any())
+            throw new BusinessException(errors);
+
+        Price = price;
+    }
+
+    private static void ValidatePrice(decimal price, List<string> errors)
+    {
+        if (price <= 0)
+            errors.Add("Price must be greater than zero");
+    }
+
+    private static void ValidateName(string name, List<string> errors)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            errors.Add("Name is required");
+    }
+
+    private static void ValidateSku(string sku, List<string> errors)
+    {
+        if (string.IsNullOrWhiteSpace(sku))
+            errors.Add("Sku is required");
+    }
+
 }
