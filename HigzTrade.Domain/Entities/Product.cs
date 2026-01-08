@@ -1,9 +1,4 @@
 ﻿using HigzTrade.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HigzTrade.Domain.Entities;
 public partial class Product

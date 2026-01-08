@@ -12,7 +12,8 @@ namespace HigzTrade.Application.DTOs.Products
             string Name,
             string Sku,
             decimal Price,
-            int CategoryId
+            int CategoryId,
+            string CreatedBy
         );
         public sealed record Response(
             int ProductId,
@@ -21,8 +22,7 @@ namespace HigzTrade.Application.DTOs.Products
             string Sku,
             decimal Price,
             string Status,
-            DateTime CreatedAt,
-            DateTime? UpdatedAt
+            DateTime CreatedAt
         );
 
     }

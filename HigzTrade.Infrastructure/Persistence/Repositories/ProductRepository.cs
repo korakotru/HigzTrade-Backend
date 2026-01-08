@@ -7,20 +7,6 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
     public class ProductRepository //: IProductRepository
     {
-        //private readonly HigzTradeDbContext _context;
-
-        //public ProductRepository(HigzTradeDbContext context)
-        //{
-        //    _context = context;
-        //}
-
-        //public async Task AddAsync(Product product)
-        //{
-        //    await _context.Products.AddAsync(product);
-        //}
-        //// ... method อื่นๆ
-        ///
-
         private readonly HigzTradeDbContext _db;
 
         public ProductRepository(HigzTradeDbContext db)
@@ -33,13 +19,14 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
             _db.Products.Add(product);
         }
 
-        public async Task<Product?> GetById(int productId)
+        public void Delete(Product product)
+        {
+            _db.Products.Remove(product);
+        }
+
+        public async Task<Product?> GetByIdAsync(int productId)
         {
             return await _db.Products.Where(x => x.ProductId == productId).SingleOrDefaultAsync();
         }
-        //public async Task AddAsync(Product product, CancellationToken ct)
-        //{
-        //    await _db.Products.AddAsync(product, ct);
-        //}
     }
 }

@@ -16,12 +16,16 @@ namespace HigzTrade.TradeApi.Controllers
     {
         private readonly CreateProductUseCase _createProduct;
         private readonly UpdatePriceUseCase _updatePrice;
+        private readonly DeleteProductUseCase _deleteProduct;
+        private readonly GetProductUseCase _getProduct;
 
         public ProductController(CreateProductUseCase createProduct,
-            UpdatePriceUseCase updatePrice)
+            UpdatePriceUseCase updatePrice,
+            DeleteProductUseCase deleteProduct)
         {
             _createProduct = createProduct;
             _updatePrice = updatePrice;
+            _deleteProduct = deleteProduct;
         }
 
         [HttpPost("create")]
@@ -38,6 +42,23 @@ namespace HigzTrade.TradeApi.Controllers
             CancellationToken ct)
         {
             return Ok(await _updatePrice.UpdatePriceAsync(request, ct));
+        }
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete(
+            [FromBody] int productId,
+            CancellationToken ct)
+        {
+            var request = new DeleteProductDto.Request(productId, "admin");
+            await _deleteProduct.DeleteAsync(request, ct);
+
+            return Ok();
+        }
+
+        public async Task<IActionResult> Delete(
+            [FromBody] GetProductDto.Request request,
+            CancellationToken ct)
+        {  
+            return Ok(await _getProduct.GetAsync(request, ct););
         }
 
         //[HttpGet]

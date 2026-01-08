@@ -8,18 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DTOs\Requests\ReadModels\**" />
-    <Compile Remove="DTOs\Responses\ReadModels\**" />
+    <Compile Remove="DTOs\Requests\**" />
+    <Compile Remove="DTOs\Responses\**" />
     <Compile Remove="Exceptions\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="ReadModels\**" />
-    <EmbeddedResource Remove="DTOs\Requests\ReadModels\**" />
-    <EmbeddedResource Remove="DTOs\Responses\ReadModels\**" />
+    <EmbeddedResource Remove="DTOs\Requests\**" />
+    <EmbeddedResource Remove="DTOs\Responses\**" />
     <EmbeddedResource Remove="Exceptions\**" />
     <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="ReadModels\**" />
-    <None Remove="DTOs\Requests\ReadModels\**" />
-    <None Remove="DTOs\Responses\ReadModels\**" />
+    <None Remove="DTOs\Requests\**" />
+    <None Remove="DTOs\Responses\**" />
     <None Remove="Exceptions\**" />
     <None Remove="Interfaces\**" />
     <None Remove="ReadModels\**" />
@@ -37,11 +37,6 @@
   <ItemGroup>
     <ProjectReference Include="..\HigzTrade.Domain\HigzTrade.Domain.csproj" />
     <ProjectReference Include="..\HigzTrade.Infrastructure\HigzTrade.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DTOs\Requests\" />
-    <Folder Include="DTOs\Responses\" />
   </ItemGroup>
 
 </Project>

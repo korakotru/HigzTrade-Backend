@@ -41,3 +41,5 @@
 Backlog:::
 - Hangfire + SignalR เพื่อทำงานที่ เป็น CPU-Bound หนักๆ และส่งผลลัพธ์กลับไปให้ User ได้อย่างแนบเนียน โดยไม่ทำให้ CPU Peek และ Thread pool ไม่ starvation
 	+ Update Product * processing time = 10 sec.
+
+- Front-end with "React"

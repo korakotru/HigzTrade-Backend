@@ -28,7 +28,7 @@ namespace HigzTrade.Application.UseCases.Products
             _categoryQuery = categoryQuery;
             _productQuery = productQuery;
             _mapper = mapper;
-        }
+        }   
 
         public async Task<CreateProductDto.Response> CreateAsync(
             CreateProductDto.Request request,

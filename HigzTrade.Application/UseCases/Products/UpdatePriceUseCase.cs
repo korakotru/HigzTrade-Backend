@@ -33,10 +33,7 @@ namespace HigzTrade.Application.UseCases.Products
             UpdatePriceDto.Request request,
             CancellationToken ct)
         {
-            var errors = new List<string>();
-            Product? product = await _productRepository.GetById(request.ProductId);
-            if (product == null) { throw new BusinessException("Product not exists"); }
-
+            Product? product = await _productRepository.GetByIdAsync(request.ProductId) ?? throw new BusinessException("Product not exists");
             product.UpdatePrice(request.Price);
 
             await _uow.ExecuteAsync(null, ct);
