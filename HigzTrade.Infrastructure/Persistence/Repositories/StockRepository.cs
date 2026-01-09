@@ -1,8 +1,8 @@
-﻿using HigzTrade.Application.Interfaces;
+﻿//using HigzTrade.Application.Interfaces;
 
 namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
-    public class StockRepository : IStockRepository
+    public class StockRepository //: IStockRepository
     {
         //private readonly HigzTradeDbContext _context;
 

@@ -14,7 +14,7 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
         private readonly HigzTradeDbContext _db;
         public CategoryQuery(HigzTradeDbContext db) => _db = db;
 
-        public Task<bool> CategoryIsExists(int categoryId, CancellationToken ct)
+        public Task<bool> IsCategoryExists(int categoryId, CancellationToken ct)
         {
             return _db.Categories.AnyAsync(c => c.CategoryId == categoryId, ct);
         }

@@ -1,0 +1,47 @@
+- Clean Architecture + DDD ***minimal-version*** ไม่ implement Clean Architecture เต็มระบบ (ไม่ใช้ interface เพื่อลดงานและความซับซ้อน)
+	+ Domain-Layer
+	+ Application-Layer
+	+ Infrastructure-Layer
+	+ Presentation/API - Layer
+- EF Core 
+	+ Generator tool (scaffold)
+	+ EFNamingConvention
+	+ Unit of Work
+	+ SQL Server
+	+ Repository & ReadModel
+- Dependency Injection (scrutor)
+- BackgroundJob (Hangfire)
+- Logging (Serilog) 
+- Validation (FluentValidation)
+- .Net Core API
+	+ Entity to DTO Mapping (Mapster)
+	+ ApiResponse standard (SuccessResponse using Filter, ErrorResponse with custom values)
+	+ Program.cs 
+		+ Environment configuration by compile-mode
+		+ Register Service/Configuration 
+		+ CustomExtensions ( RateLimiter, RequestTimeouts )
+		+ CustomMiddlewares (ExceptionHandleMiddleware)
+	+ Product CRUD Showcase
+		+ Create Product
+		+ Search Product
+		+ Update Product (additional sample "DomainEvent")
+		+ Delete Product
+- Security *****
+	+ Authentication
+	+ Authorization (such as Filter)
+	+ RateLimiter, RequestTimeouts
+
+
+
+Reminder:
+- DRY (Don't Repeat Yourself)
+- KISS (Keep It Simple, Stupid)
+- YAGNI (You Ain't Gonna Need It)
+
+
+
+Backlog:::
+- Hangfire + SignalR เพื่อทำงานที่ เป็น CPU-Bound หนักๆ และส่งผลลัพธ์กลับไปให้ User ได้อย่างแนบเนียน โดยไม่ทำให้ CPU Peek และ Thread pool ไม่ starvation
+	+ Update Product * processing time = 10 sec.
+
+- Front-end with "React"

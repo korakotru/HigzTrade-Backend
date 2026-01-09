@@ -1,0 +1,5 @@
+dotnet add src/HigzTrade.TradeApi package Mapster
+dotnet add src/HigzTrade.TradeApi package Mapster.DependencyInjection
+
+
+

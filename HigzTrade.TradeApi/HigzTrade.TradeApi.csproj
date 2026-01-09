@@ -4,7 +4,36 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyVersion>1.0.0.*</AssemblyVersion>
+    <Configurations>Debug;Release;Production</Configurations>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|AnyCPU'">
+    <Deterministic>False</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\ExceptionExtensions.cs" />
+    <Compile Remove="Extensions\FilterExtension.cs" />
+    <Compile Remove="Extensions\SecurityExtension.cs" />
+    <Compile Remove="Extensions\SerilogOptionsExtension.cs" />
+    <Compile Remove="Middlewares\ExceptionHandlingMiddleware - Copy.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />

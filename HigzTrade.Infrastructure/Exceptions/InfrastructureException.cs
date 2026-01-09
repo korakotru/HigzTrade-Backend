@@ -9,6 +9,6 @@ namespace HigzTrade.Infrastructure.Exceptions
 
     public class InfrastructureException : Exception
     {
-        public InfrastructureException(string message) : base(message) { }
+        public InfrastructureException(string message, Exception? inner = null) : base(message, inner) { }
     }
 }

@@ -1,0 +1,44 @@
+- ติดตั้งใน Infrastructure Project : สำหรับเก็บการตั้งค่า (Configuration) และการเชื่อมต่อกับฐานข้อมูล (Storage) เนื่องจาก Hangfire ต้องใช้ SQL Server ในการเก็บคิวงาน
+- Web API (Program.cs): เป็นจุดที่สั่ง Register Service และเปิดใช้งาน Dashboard (หน้าจอคุมงาน ข้าไปดูสถานะของงานได้)
+
+
+============ ขั้นตอนการติดตั้ง (Installation Steps) ============
+Step 1: ลง Library ที่จำเป็น
+ให้ Pele ลง NuGet Packages เหล่านี้ในโปรเจกต์ Infrastructure และ Web API เจ้าค่ะ:
+
+Hangfire.AspNetCore
+
+Hangfire.SqlServer
+
+Step 2: การตั้งค่าใน Program.cs
+เพิ่มการตั้งค่านี้เพื่อให้ Hangfire ใช้ฐานข้อมูลเดียวกับระบบของเรารองรับงานหนักๆ
+
+// ใน Program.cs
+builder.Services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// เพิ่ม Server สำหรับประมวลผลงาน
+builder.Services.AddHangfireServer();
+
+Step 3: เปิดใช้งาน Dashboard
+เพื่อให้ตรวจสอบได้ว่างาน Big Data ทำเสร็จหรือยัง ให้ใส่คำสั่งนี้หลัง app.Build()
+var app = builder.Build();
+
+app.UseHangfireDashboard(); // เข้าดูได้ที่ /hangfire
+
+
+
+============ วิธีการนำไปใช้งาน (Usage) ============
+เมื่อติดตั้งเสร็จแล้วสามารถเปลี่ยนงานที่เคยรอนานๆ ใน BigDataProcessingPolicy มาเป็นงานเบื้องหลังได้ง่ายๆแบบนี้
+// แทนที่จะ await ให้มันหมุนติ้วที่หน้าจอ
+// เราสั่งให้ Hangfire รับไปทำแทน
+BackgroundJob.Enqueue(() => _syncService.ProcessAllDataAsync(CancellationToken.None));
+
+
+
+
+
+

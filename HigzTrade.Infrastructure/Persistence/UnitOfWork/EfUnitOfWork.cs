@@ -10,12 +10,12 @@ namespace HigzTrade.Infrastructure.Persistence.UnitOfWork
 
         public EfUnitOfWork(HigzTradeDbContext db) => _db = db;
 
-        public async Task ExecuteAsync(Func<CancellationToken, Task> action, CancellationToken ct)
+        public async Task ExecuteAsync(Func<CancellationToken, Task>? action, CancellationToken ct)
         {
             // ตรวจสอบว่ามี Transaction เปิดอยู่แล้วหรือไม่ (ป้องกันการเปิดซ้อน)
             if (_db.Database.CurrentTransaction != null)
             {
-                await action(ct);
+                if(action != null) await action(ct);
                 await _db.SaveChangesAsync(ct);
                 return;
             }
@@ -28,7 +28,7 @@ namespace HigzTrade.Infrastructure.Persistence.UnitOfWork
                 //await Task.Delay(15000, ct);
                 /*********************************************************/
 
-                await action(ct);
+                if (action != null) await action(ct);
                 await _db.SaveChangesAsync(ct);
                 await tx.CommitAsync(ct);
             }

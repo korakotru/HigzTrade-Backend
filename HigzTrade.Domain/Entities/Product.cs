@@ -1,24 +1,23 @@
 ﻿using HigzTrade.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
 
 namespace HigzTrade.Domain.Entities;
 public partial class Product
 {
-    public static Product Create(
+    private Product() { }
+    internal static Product Create(
        string name,
        string sku,
        decimal price,
        int categoryId)
     {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new DomainException("Name is required");
+        var errors = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(sku))
-            throw new DomainException("Sku is required");
+        ValidateName(name, errors);
+        ValidateSku(sku, errors);
+        ValidatePrice(price, errors);
 
-        if (price <= 0)
-            throw new DomainException("Price must be greater than zero");
+        if (errors.Any())
+            throw new BusinessException(errors);
 
         return new Product
         {
@@ -30,4 +29,35 @@ public partial class Product
             CreatedAt = DateTime.UtcNow
         };
     }
+
+    public void UpdatePrice(decimal price)
+    {
+        var errors = new List<string>();
+
+        ValidatePrice(price, errors);
+
+        if (errors.Any())
+            throw new BusinessException(errors);
+
+        Price = price;
+    }
+
+    private static void ValidatePrice(decimal price, List<string> errors)
+    {
+        if (price <= 0)
+            errors.Add("Price must be greater than zero");
+    }
+
+    private static void ValidateName(string name, List<string> errors)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            errors.Add("Name is required");
+    }
+
+    private static void ValidateSku(string sku, List<string> errors)
+    {
+        if (string.IsNullOrWhiteSpace(sku))
+            errors.Add("Sku is required");
+    }
+
 }

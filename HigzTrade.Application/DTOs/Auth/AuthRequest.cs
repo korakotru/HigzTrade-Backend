@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HigzTrade.Application.DTOs.Requests
+namespace HigzTrade.Application.DTOs.Auth
 {
     public class AuthRequest
     {
