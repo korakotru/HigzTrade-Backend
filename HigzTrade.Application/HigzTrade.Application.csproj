@@ -11,17 +11,14 @@
     <Compile Remove="DTOs\Requests\**" />
     <Compile Remove="DTOs\Responses\**" />
     <Compile Remove="Exceptions\**" />
-    <Compile Remove="Interfaces\**" />
     <Compile Remove="ReadModels\**" />
     <EmbeddedResource Remove="DTOs\Requests\**" />
     <EmbeddedResource Remove="DTOs\Responses\**" />
     <EmbeddedResource Remove="Exceptions\**" />
-    <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="ReadModels\**" />
     <None Remove="DTOs\Requests\**" />
     <None Remove="DTOs\Responses\**" />
     <None Remove="Exceptions\**" />
-    <None Remove="Interfaces\**" />
     <None Remove="ReadModels\**" />
   </ItemGroup>
 
@@ -36,7 +33,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HigzTrade.Domain\HigzTrade.Domain.csproj" />
-    <ProjectReference Include="..\HigzTrade.Infrastructure\HigzTrade.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

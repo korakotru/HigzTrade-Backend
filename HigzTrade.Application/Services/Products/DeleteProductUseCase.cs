@@ -1,22 +1,15 @@
 ﻿using HigzTrade.Application.DTOs.Products;
-using HigzTrade.Domain.Exceptions;
-using HigzTrade.Infrastructure.Persistence.Repositories;
-using HigzTrade.Infrastructure.Persistence.UnitOfWork;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HigzTrade.Application.Interfaces;
+using HigzTrade.Domain.Exceptions; 
 
 namespace HigzTrade.Application.UseCases.Products
 {
     public class DeleteProductUseCase
     {
-        private EfUnitOfWork _uow;
-        private ProductRepository _productRepository;
+        private IAppUnitOfWork _uow;
+        private IProductRepository _productRepository;
 
-        public DeleteProductUseCase(EfUnitOfWork uow, ProductRepository productRepository)
+        public DeleteProductUseCase(IAppUnitOfWork uow, IProductRepository productRepository)
         {
             _uow = uow;
             _productRepository = productRepository;

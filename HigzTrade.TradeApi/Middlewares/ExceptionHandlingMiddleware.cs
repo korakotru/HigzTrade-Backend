@@ -90,6 +90,7 @@ namespace HigzTrade.TradeApi.Middlewares
                 errors = new[] { ex.Message };
                 stackTrace = ex.StackTrace;
             }
+            stackTrace = stackTrace ?? "";
 
             var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
             diagnosticContext.Set("Title", status >= 500 ? "Error" : "Success");
@@ -98,7 +99,7 @@ namespace HigzTrade.TradeApi.Middlewares
             diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
             diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
             diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
-            diagnosticContext.Set("StackTrace", status == 400 ? stackTrace.Substring(0,300) : stackTrace);
+            diagnosticContext.Set("StackTrace", status == 400 ? stackTrace.Length > 300 ? stackTrace.Substring(0,300): stackTrace : stackTrace);
 
             ctx.Response.Clear();
             ctx.Response.StatusCode = status;

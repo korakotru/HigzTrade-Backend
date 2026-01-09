@@ -1,10 +1,10 @@
-﻿//using HigzTrade.Application.Interfaces;
+﻿using HigzTrade.Application.Interfaces;
 using HigzTrade.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace HigzTrade.Infrastructure.Persistence.UnitOfWork
 {
-    public sealed class EfUnitOfWork //: IAppUnitOfWork
+    public sealed class EfUnitOfWork : IAppUnitOfWork
     {
         private readonly HigzTradeDbContext _db;
 

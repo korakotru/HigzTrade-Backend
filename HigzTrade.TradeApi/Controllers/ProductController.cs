@@ -1,11 +1,8 @@
 ﻿using HigzTrade.Application.DTOs.Products;
 using HigzTrade.Application.UseCases.Products;
 using HigzTrade.TradeApi.Constants;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.Extensions.Options;
 
 namespace HigzTrade.TradeApi.Controllers
 {
@@ -17,15 +14,17 @@ namespace HigzTrade.TradeApi.Controllers
         private readonly CreateProductUseCase _createProduct;
         private readonly UpdatePriceUseCase _updatePrice;
         private readonly DeleteProductUseCase _deleteProduct;
-        private readonly GetProductUseCase _getProduct;
+        private readonly GetProductQuery _getProduct;
 
         public ProductController(CreateProductUseCase createProduct,
             UpdatePriceUseCase updatePrice,
-            DeleteProductUseCase deleteProduct)
+            DeleteProductUseCase deleteProduct,
+            GetProductQuery getProductQuery)
         {
             _createProduct = createProduct;
             _updatePrice = updatePrice;
             _deleteProduct = deleteProduct;
+            _getProduct = getProductQuery;
         }
 
         [HttpPost("create")]
@@ -54,11 +53,20 @@ namespace HigzTrade.TradeApi.Controllers
             return Ok();
         }
 
-        public async Task<IActionResult> Delete(
-            [FromBody] GetProductDto.Request request,
+        [HttpGet("search-keyword")]
+        public async Task<IActionResult> SearchByKeyword(
+            [FromBody] PoductQueryDto.Request request,
             CancellationToken ct)
-        {  
-            return Ok(await _getProduct.GetAsync(request, ct););
+        {
+            return Ok(await _getProduct.SearchAsync(request, ct));
+        }
+
+        [HttpGet("search-id")]
+        public async Task<IActionResult> SearchById(
+            [FromBody] int productId,
+            CancellationToken ct)
+        {
+            return Ok(await _getProduct.SearchByIdAsync(productId, ct));
         }
 
         //[HttpGet]

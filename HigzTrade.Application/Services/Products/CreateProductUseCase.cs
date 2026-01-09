@@ -1,8 +1,7 @@
 ﻿using HigzTrade.Application.DTOs.Products;
 using HigzTrade.Domain.Entities;
 using HigzTrade.Domain.Exceptions;
-using HigzTrade.Infrastructure.Persistence.Repositories;
-using HigzTrade.Infrastructure.Persistence.UnitOfWork;
+using HigzTrade.Application.Interfaces;
 using MapsterMapper;
 
 
@@ -10,17 +9,17 @@ namespace HigzTrade.Application.UseCases.Products
 {
     public sealed class CreateProductUseCase
     {
-        private readonly ProductRepository _productRepository;
-        private readonly EfUnitOfWork _uow;
-        private readonly CategoryQuery _categoryQuery;
-        private readonly ProductQuery _productQuery;
+        private readonly IProductRepository _productRepository;
+        private readonly IAppUnitOfWork _uow;
+        private readonly ICategoryQuery _categoryQuery;
+        private readonly IProductQuery _productQuery;
         private readonly IMapper _mapper;
 
         public CreateProductUseCase(
-            ProductRepository productRepository,
-            ProductQuery productQuery,
-            EfUnitOfWork uow,
-            CategoryQuery categoryQuery,
+            IProductRepository productRepository,
+            IProductQuery productQuery,
+            IAppUnitOfWork uow,
+            ICategoryQuery categoryQuery,
             IMapper mapper)
         {
             _productRepository = productRepository;

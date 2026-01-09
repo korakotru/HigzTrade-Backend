@@ -1,25 +1,24 @@
 ﻿using HigzTrade.Application.DTOs.Products;
+using HigzTrade.Application.Interfaces;
 using HigzTrade.Domain.Entities;
-using HigzTrade.Domain.Exceptions;
-using HigzTrade.Infrastructure.Persistence.Repositories;
-using HigzTrade.Infrastructure.Persistence.UnitOfWork;
+using HigzTrade.Domain.Exceptions; 
 using MapsterMapper;
 
 namespace HigzTrade.Application.UseCases.Products
 {
     public sealed class UpdatePriceUseCase
     {
-        private readonly ProductRepository _productRepository;
-        private readonly EfUnitOfWork _uow;
-        private readonly CategoryQuery _categoryQuery;
-        private readonly ProductQuery _productQuery;
+        private readonly IProductRepository _productRepository;
+        private readonly IAppUnitOfWork _uow;
+        private readonly ICategoryQuery _categoryQuery;
+        private readonly IProductQuery _productQuery;
         private readonly IMapper _mapper;
 
         public UpdatePriceUseCase(
-            ProductRepository productRepository,
-            ProductQuery productQuery,
-            EfUnitOfWork uow,
-            CategoryQuery categoryQuery,
+            IProductRepository productRepository,
+            IProductQuery productQuery,
+            IAppUnitOfWork uow,
+            ICategoryQuery categoryQuery,
             IMapper mapper)
         {
             _productRepository = productRepository;

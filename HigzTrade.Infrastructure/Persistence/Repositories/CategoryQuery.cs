@@ -1,4 +1,4 @@
-﻿//using HigzTrade.Application.Interfaces;
+﻿using HigzTrade.Application.Interfaces;
 using HigzTrade.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
-    public class CategoryQuery //: ICategoryQuery
+    public class CategoryQuery : ICategoryQuery
     {
         private readonly HigzTradeDbContext _db;
         public CategoryQuery(HigzTradeDbContext db) => _db = db;

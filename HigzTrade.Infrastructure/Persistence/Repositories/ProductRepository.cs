@@ -1,11 +1,12 @@
 ﻿//using HigzTrade.Application.Interfaces;
+using HigzTrade.Application.Interfaces;
 using HigzTrade.Domain.Entities;
 using HigzTrade.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace HigzTrade.Infrastructure.Persistence.Repositories
 {
-    public class ProductRepository //: IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly HigzTradeDbContext _db;
 

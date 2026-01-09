@@ -29,12 +29,14 @@
 - Security *****
 	+ Authentication
 	+ Authorization (such as Filter)
-	+ RateLimiter, RequestTimeouts 
+	+ RateLimiter, RequestTimeouts
 
 
 
-
-
+Reminder:
+- DRY (Don't Repeat Yourself)
+- KISS (Keep It Simple, Stupid)
+- YAGNI (You Ain't Gonna Need It)
 
 
 

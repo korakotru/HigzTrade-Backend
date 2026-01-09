@@ -8,6 +8,6 @@ namespace HigzTrade.Application.Interfaces
 {
     public interface ICategoryQuery
     {
-        Task<bool> CategoryIsExists(int categoryId, CancellationToken ct);
+        Task<bool> IsCategoryExists(int categoryId, CancellationToken ct);
     }
 }

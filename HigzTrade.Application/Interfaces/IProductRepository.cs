@@ -1,4 +1,5 @@
-﻿using HigzTrade.Domain.Entities;
+﻿using HigzTrade.Application.DTOs.Products;
+using HigzTrade.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace HigzTrade.Application.Interfaces
     public interface IProductRepository
     {
         void Add(Product product);
-        //Task AddAsync(Product product, CancellationToken ct);
+        void Delete(Product product);
+        Task<Product?> GetByIdAsync(int productId);
     }
 }
