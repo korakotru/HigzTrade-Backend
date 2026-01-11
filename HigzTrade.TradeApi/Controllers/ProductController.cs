@@ -32,7 +32,8 @@ namespace HigzTrade.TradeApi.Controllers
             [FromBody] CreateProductDto.Request request,
             CancellationToken ct)
         {
-            return Ok(await _createProduct.CreateAsync(request, ct));
+            string createdBy = "admin";
+            return Ok(await _createProduct.CreateAsync(request, createdBy, ct));
         }
 
         [HttpPut("update-price")]

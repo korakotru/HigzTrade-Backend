@@ -12,8 +12,7 @@ namespace HigzTrade.Application.DTOs.Products
             string Name,
             string Sku,
             decimal Price,
-            int CategoryId,
-            string CreatedBy
+            int CategoryId
         );
         public sealed record Response(
             int ProductId,

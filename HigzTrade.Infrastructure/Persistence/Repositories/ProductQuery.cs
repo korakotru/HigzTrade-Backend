@@ -53,7 +53,7 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
                 p.Category.Name,
                 p.CreatedBy,
                 p.CreatedAt,
-                p.UpdatedBy,
+                p.UpdatedBy ?? "",
                 p.UpdatedAt,
                 p.Stock == null ? 0 : p.Stock.AvailableQty
             ));

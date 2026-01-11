@@ -31,6 +31,7 @@ namespace HigzTrade.Application.UseCases.Products
 
         public async Task<CreateProductDto.Response> CreateAsync(
             CreateProductDto.Request request,
+            string createdBy,
             CancellationToken ct)
         {
             var errors = new List<string>();
@@ -41,7 +42,7 @@ namespace HigzTrade.Application.UseCases.Products
                 if (!await _categoryQuery.IsCategoryExists(request.CategoryId, ct)) errors.Add("Invalid Category");
                 if (await _productQuery.IsSkuExists(request.Sku, ct)) errors.Add("SKU already exists.");
 
-                product = Product.Create(request.Name, request.Sku, request.Price, request.CategoryId);
+                product = Product.Create(request.Name, request.Sku, request.Price, request.CategoryId, createdBy);
             }
             catch (BusinessException ex)
             {
