@@ -1,4 +1,5 @@
-﻿using HigzTrade.Infrastructure.ExternalServices;
+﻿using HigzTrade.Application.Interfaces.ExternalServices;
+using HigzTrade.Infrastructure.ExternalServices;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace HigzTrade.Infrastructure.BackgroundJobs
 {
     public sealed class SendApplicationErrorEmailJob
     {
-        private readonly MailService _mailService;
+        private readonly IMailService _mailService;
         private readonly ILogger<SendApplicationErrorEmailJob> _log;
 
         public SendApplicationErrorEmailJob(
-            MailService mailService,
+            IMailService mailService,
             ILogger<SendApplicationErrorEmailJob> log)
         {
             _mailService = mailService;

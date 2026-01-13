@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HigzTrade.Application.UseCases.Orders
+namespace HigzTrade.Application.Services.Orders
 {
     public class PlaceOrderUseCase
     {

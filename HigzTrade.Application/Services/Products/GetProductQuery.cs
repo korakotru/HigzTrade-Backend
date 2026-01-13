@@ -1,15 +1,15 @@
-﻿using HigzTrade.Application.Interfaces;
-using Mapster;
+﻿using Mapster;
 using MapsterMapper;
 using HigzTrade.Application.DTOs.Products;
+using HigzTrade.Application.Interfaces.Repositories;
 
-namespace HigzTrade.Application.UseCases.Products
+namespace HigzTrade.Application.Services.Products
 {
     public class GetProductQuery
     {
         private readonly IProductQuery _productQuery;
 
-        public GetProductQuery(IProductQuery productQuery, CancellationToken ct)
+        public GetProductQuery(IProductQuery productQuery)
         {
             _productQuery = productQuery;
         }

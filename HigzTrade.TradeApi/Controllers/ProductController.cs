@@ -1,5 +1,5 @@
 ﻿using HigzTrade.Application.DTOs.Products;
-using HigzTrade.Application.UseCases.Products;
+using HigzTrade.Application.Services.Products;
 using HigzTrade.TradeApi.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -43,18 +43,18 @@ namespace HigzTrade.TradeApi.Controllers
         {
             return Ok(await _updatePrice.UpdatePriceAsync(request, ct));
         }
-        [HttpDelete("delete")]
+
+        [HttpPost("delete")]
         public async Task<IActionResult> Delete(
             [FromBody] int productId,
             CancellationToken ct)
         {
             var request = new DeleteProductDto.Request(productId, "admin");
             await _deleteProduct.DeleteAsync(request, ct);
-
             return Ok();
         }
 
-        [HttpGet("search-keyword")]
+        [HttpPost("search-keyword")]
         public async Task<IActionResult> SearchByKeyword(
             [FromBody] PoductQueryDto.Request request,
             CancellationToken ct)
@@ -62,7 +62,7 @@ namespace HigzTrade.TradeApi.Controllers
             return Ok(await _getProduct.SearchAsync(request, ct));
         }
 
-        [HttpGet("search-id")]
+        [HttpPost("search-id")]
         public async Task<IActionResult> SearchById(
             [FromBody] int productId,
             CancellationToken ct)

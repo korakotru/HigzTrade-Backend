@@ -52,6 +52,7 @@ else // builder.Environment.IsStaging(), builder.Environment.IsDevelopment()
             Title = "HigzTrade API",
             Version = AppVersionHelpers.GetBuildVersion()
         });
+        c.CustomSchemaIds(type => type.FullName?.Replace("+", "."));
     });
 }
 
@@ -78,7 +79,7 @@ builder.Services.AddRouting(options =>
  *  Register Dependency
  */
 builder.Services.AddInfrastructure(builder.Configuration); //register repository, unit of work, dbContext
-builder.Services.AddApplication(); //register application service
+builder.Services.AddApplicationService(); //register application service
 builder.Services.AddMapster(); // Auto mapper
 
 

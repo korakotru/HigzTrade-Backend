@@ -1,4 +1,4 @@
-﻿using HigzTrade.Application.Interfaces;
+﻿using HigzTrade.Application.Interfaces.Repositories;
 using HigzTrade.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -1,8 +1,9 @@
 ﻿using HigzTrade.Application.DTOs.Products;
 using HigzTrade.Application.Interfaces;
+using HigzTrade.Application.Interfaces.Repositories;
 using HigzTrade.Domain.Exceptions; 
 
-namespace HigzTrade.Application.UseCases.Products
+namespace HigzTrade.Application.Services.Products
 {
     public class DeleteProductUseCase
     {

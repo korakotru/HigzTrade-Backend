@@ -1,5 +1,5 @@
 ﻿using HigzTrade.Application.DTOs.Products;
-using HigzTrade.Application.Interfaces;
+using HigzTrade.Application.Interfaces.Repositories;
 using HigzTrade.Domain.Entities;
 using HigzTrade.Domain.Exceptions;
 using HigzTrade.Infrastructure.Persistence.Context;
@@ -33,7 +33,7 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
         }
         public async Task<PoductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct)
         {
-            var query = _db.Products.AsNoTracking(); // prevent chang tracking
+            var query = _db.Products.AsNoTracking(); // prevent change tracking
 
             query = query.Where(p => p.ProductId == productId);
 
