@@ -10,7 +10,9 @@ namespace HigzTrade.Application.Interfaces.Repositories
     public interface IProductQuery
     {
         Task<bool> IsSkuExists(string sku, CancellationToken ct);
-        Task<List<PoductQueryDto.Response>> SearchByKeywordAsync(string keyword, CancellationToken ct);
-        Task<PoductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct);
+        Task<ProductQueryDto.PagedResponse<ProductQueryDto.Response>> SearchByKeywordAsync(
+            ProductQueryDto.Request request,
+            CancellationToken ct);
+        Task<ProductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct);
     }
 }

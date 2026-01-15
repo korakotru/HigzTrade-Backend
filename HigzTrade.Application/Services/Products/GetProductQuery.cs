@@ -13,12 +13,15 @@ namespace HigzTrade.Application.Services.Products
         {
             _productQuery = productQuery;
         }
-        public async Task<List<PoductQueryDto.Response>> SearchAsync(PoductQueryDto.Request request, CancellationToken ct)
+        public async Task<ProductQueryDto.PagedResponse<ProductQueryDto.Response>> SearchAsync(
+            ProductQueryDto.Request request,
+            CancellationToken ct)
         {
-            return await _productQuery.SearchByKeywordAsync(request.keyword, ct);
+            // ส่ง request (ที่มีทั้ง keyword, pageIndex, pageSize) ไปที่ repository
+            return await _productQuery.SearchByKeywordAsync(request, ct);
         }
 
-        public async Task<PoductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct)
+        public async Task<ProductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct)
         {
             return await _productQuery.SearchByIdAsync(productId, ct);
         }

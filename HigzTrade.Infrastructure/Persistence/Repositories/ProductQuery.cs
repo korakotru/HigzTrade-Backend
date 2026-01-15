@@ -17,21 +17,42 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
         {
             return _db.Products.AnyAsync(ent => ent.Sku.ToLower() == sku.ToLower(), ct);
         }
-        public async Task<List<PoductQueryDto.Response>> SearchByKeywordAsync(string keyword, CancellationToken ct)
+        public async Task<ProductQueryDto.PagedResponse<ProductQueryDto.Response>> SearchByKeywordAsync(
+      ProductQueryDto.Request request,
+      CancellationToken ct)
         {
-            var query = _db.Products.AsNoTracking(); // prevent chang tracking
+            var query = _db.Products.AsNoTracking();
 
-            // 1. กรองข้อมูลตาม Keyword (ถ้ามี)
-            if (!string.IsNullOrWhiteSpace(keyword))
+            // 1. กรองข้อมูลตาม Keyword (ที่ระดับ Entity)
+            if (!string.IsNullOrWhiteSpace(request.Keyword))
             {
-                query = query.Where(p => p.Name.Contains(keyword) || p.Sku.Contains(keyword));
+                query = query.Where(p => p.Name.Contains(request.Keyword) || p.Sku.Contains(request.Keyword) || (request.Keyword ?? "") == "");
             }
 
-            // 2. ใช้ ProjectToType เพื่อทำ SQL Join และเลือกเฉพาะฟิลด์ที่ต้องการ
-            // Mapster จะฉลาดพอที่จะดึง Category.Name และคำนวณ Stock (ถ้าเจ้านายตั้งชื่อฟิลด์ใน Response ให้ตรง)
-            return await ProjectToProductResponse(query).ToListAsync(ct);
+            // 2. นับจำนวนทั้งหมด
+            var totalCount = await query.CountAsync(ct);
+
+            // 3. ทำ Order และ Paging ที่ "query" (ซึ่งยังเป็น DbSet<Product>)
+            // การเรียงลำดับต้องทำก่อน Skip/Take เสมอครับพี่
+            var pagedQuery = query
+                .OrderByDescending(p => p.CreatedAt)
+                .Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize);
+
+            // 4. ค่อยส่งข้อมูลที่ตัดแบ่งหน้าแล้วไปเข้า Projector เพื่อ Join ตารางอื่น
+            var items = await ProjectToProductResponse(pagedQuery)
+                .ToListAsync(ct);
+
+            // 5. ส่งกลับเป็น PagedResponse
+            return new ProductQueryDto.PagedResponse<ProductQueryDto.Response>
+            {
+                Items = items,
+                TotalCount = totalCount,
+                TotalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize),
+                CurrentPage = request.PageIndex
+            };
         }
-        public async Task<PoductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct)
+        public async Task<ProductQueryDto.Response> SearchByIdAsync(int productId, CancellationToken ct)
         {
             var query = _db.Products.AsNoTracking(); // prevent change tracking
 
@@ -41,9 +62,9 @@ namespace HigzTrade.Infrastructure.Persistence.Repositories
             return result ?? throw new BusinessException("Not found product");
         }
 
-        private IQueryable<PoductQueryDto.Response> ProjectToProductResponse(IQueryable<Product> query)
+        private IQueryable<ProductQueryDto.Response> ProjectToProductResponse(IQueryable<Product> query)
         {
-            return query.Select(p => new PoductQueryDto.Response(
+            return query.Select(p => new ProductQueryDto.Response(
                 p.ProductId,
                 p.Name,
                 p.Sku,
