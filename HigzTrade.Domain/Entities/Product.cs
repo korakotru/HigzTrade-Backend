@@ -3,12 +3,13 @@
 namespace HigzTrade.Domain.Entities;
 public partial class Product
 {
-    private Product() { }
+    private Product() { CreatedBy = "admin"; CreatedAt = DateTime.Now; }
     internal static Product Create(
        string name,
        string sku,
        decimal price,
-       int categoryId)
+       int categoryId,
+       string  createdBy)
     {
         var errors = new List<string>();
 
@@ -26,7 +27,8 @@ public partial class Product
             Price = price,
             CategoryId = categoryId,
             Status = "active",
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.UtcNow,
+            CreatedBy = createdBy
         };
     }
 

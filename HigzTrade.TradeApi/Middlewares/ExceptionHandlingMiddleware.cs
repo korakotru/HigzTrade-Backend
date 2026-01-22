@@ -5,6 +5,8 @@ using HigzTrade.TradeApi.Helpers;
 using HigzTrade.TradeApi.HttpResponseModels;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HigzTrade.TradeApi.Middlewares
 {
@@ -31,6 +33,15 @@ namespace HigzTrade.TradeApi.Middlewares
             try
             {
                 await _next(ctx); // โค้ด try-catch ครอบการเรียก _next(context) *** เพราะเราออกแบบ class นีให้เป็น ExceptionHandlingMiddleware 
+
+
+                var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
+                diagnosticContext.Set("Title",   "Success");
+                diagnosticContext.Set("IsError", false);
+                diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
+                diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
+                diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
+                diagnosticContext.Set("TraceId", ctx.TraceIdentifier); 
             }
             catch (OperationCanceledException)
             {
@@ -95,11 +106,12 @@ namespace HigzTrade.TradeApi.Middlewares
             var diagnosticContext = ctx.RequestServices.GetRequiredService<IDiagnosticContext>();
             diagnosticContext.Set("Title", status >= 500 ? "Error" : "Success");
             diagnosticContext.Set("IsError", status >= 500);
-            diagnosticContext.Set("Detail", $"{title} : '{string.Join("', '", errors)}'");
             diagnosticContext.Set("ClientIP", ctx.Connection.RemoteIpAddress?.ToString());
             diagnosticContext.Set("UserId", ctx.User?.Identity?.Name ?? "Anonymous");
             diagnosticContext.Set("BuildVersion", AppVersionHelpers.GetBuildVersion());
-            diagnosticContext.Set("StackTrace", status == 400 ? stackTrace.Length > 300 ? stackTrace.Substring(0,300): stackTrace : stackTrace);
+            diagnosticContext.Set("TraceId", ctx.TraceIdentifier); 
+            diagnosticContext.Set("Detail", $"{title} : '{string.Join("', '", errors)}'");
+            diagnosticContext.Set("StackTrace", status == 400 ? stackTrace.Length > 300 ? stackTrace.Substring(0, 300) : stackTrace : stackTrace);
 
             ctx.Response.Clear();
             ctx.Response.StatusCode = status;

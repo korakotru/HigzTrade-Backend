@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HigzTrade.Application.Interfaces
+namespace HigzTrade.Application.Interfaces.Repositories
 {
-    public class IIdentityService
+    public interface IOrderRepository
     {
     }
 }

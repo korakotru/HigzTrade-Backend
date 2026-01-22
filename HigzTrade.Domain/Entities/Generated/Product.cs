@@ -19,7 +19,7 @@ public partial class Product
     public string CreatedBy { get; set; }
 
     public DateTime CreatedAt { get; private set; }
-    public string UpdatedBy { get; set; }
+    public string? UpdatedBy { get; set; }
     public DateTime? UpdatedAt { get; private set; }
 
     public virtual Category Category { get; private set; } = null!;

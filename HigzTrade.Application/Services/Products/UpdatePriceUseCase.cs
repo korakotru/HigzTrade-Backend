@@ -1,10 +1,11 @@
 ﻿using HigzTrade.Application.DTOs.Products;
-using HigzTrade.Application.Interfaces;
 using HigzTrade.Domain.Entities;
-using HigzTrade.Domain.Exceptions; 
+using HigzTrade.Domain.Exceptions;
+using HigzTrade.Application.Interfaces;
+using HigzTrade.Application.Interfaces.Repositories;
 using MapsterMapper;
 
-namespace HigzTrade.Application.UseCases.Products
+namespace HigzTrade.Application.Services.Products
 {
     public sealed class UpdatePriceUseCase
     {

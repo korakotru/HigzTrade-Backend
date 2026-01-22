@@ -14,7 +14,8 @@ namespace HigzTrade.TradeApi.Controllers
         public async Task<IActionResult> Login()
         {
             //todo: implement
-            return Ok(new { token = "498489egrrwg498adsfgasdfgqer89wt89w3eqt897qw789et" });
+
+            return await Task.FromResult(Ok(new { token = "..." }));
         }
     }
 }
